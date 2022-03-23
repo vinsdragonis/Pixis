@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
                         if (vkey != -1) {
                             chip8_keyboard_down(&chip8.keyboard, vkey);
                         }
-                        printf("Key is down: %x\n", vkey);
+                        // printf("Key is down: %x\n", vkey);
                     }
                     break;
                 case SDL_KEYUP:
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
                         if (vkey != -1) {
                             chip8_keyboard_up(&chip8.keyboard, vkey);
                         }
-                        printf("Key is up: %x\n", vkey);
+                        // printf("Key is up: %x\n", vkey);
                     }
                     break;
             }
