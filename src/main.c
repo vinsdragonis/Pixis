@@ -39,13 +39,15 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    // printf("%s\n", buffer);
-
     struct chip8 chip8;
 
     chip8_init(&chip8);
     chip8_load(&chip8, buffer, size);
-    chip8_screen_draw_sprite(&chip8.screen, 30, 12, &chip8.memory.memory[0x05], 5);
+
+    chip8.registers.I = 0x00;
+    chip8.registers.V[0] = 10;
+    chip8.registers.V[1] = 10;
+    chip8_exec(&chip8, 0xD015);
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
