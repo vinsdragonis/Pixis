@@ -43,11 +43,7 @@ int main(int argc, char **argv) {
 
     chip8_init(&chip8);
     chip8_load(&chip8, buffer, size);
-
-    chip8.registers.I = 0x00;
-    chip8.registers.V[0] = 10;
-    chip8.registers.V[1] = 10;
-    chip8_exec(&chip8, 0xD015);
+    chip8_keyboard_set_map(&chip8.keyboard, keyboard_map);
 
     SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -74,7 +70,7 @@ int main(int argc, char **argv) {
                 case SDL_KEYDOWN:
                     {
                         char key = event.key.keysym.sym;
-                        int vkey = chip8_keyboard_map(keyboard_map, key);
+                        int vkey = chip8_keyboard_map(&chip8.keyboard, key);
                         if (vkey != -1) {
                             chip8_keyboard_down(&chip8.keyboard, vkey);
                         }
@@ -84,7 +80,7 @@ int main(int argc, char **argv) {
                 case SDL_KEYUP:
                     {
                         char key = event.key.keysym.sym;
-                        int vkey = chip8_keyboard_map(keyboard_map, key);
+                        int vkey = chip8_keyboard_map(&chip8.keyboard, key);
                         if (vkey != -1) {
                             chip8_keyboard_up(&chip8.keyboard, vkey);
                         }
@@ -117,13 +113,13 @@ int main(int argc, char **argv) {
         SDL_RenderPresent(renderer);
 
         if (chip8.registers.delay_timer > 0) {
-            Sleep(100);
+            Sleep(10);
             chip8.registers.delay_timer -= 1;
-            printf("Delay!!!\n");
+            // printf("Delay!!!\n");
         }
 
         if (chip8.registers.sound_timer > 0) {
-            Beep(15000, 100 * chip8.registers.sound_timer);
+            Beep(15000, 10 * chip8.registers.sound_timer);
             chip8.registers.sound_timer = 0;
         }
 
