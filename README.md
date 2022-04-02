@@ -3,12 +3,12 @@
 
 **Chip-8 emulators are vitual machines used to run games from the 1970s like pong, tetris, space invaders, etc.**
 
-## ⚠ Disclaimer:
+## ⚠ Disclaimer!
 **I neither own any of the chip-8 games included, nor do I take any credit for them. All credits to the developers of the games only.**
 
 <img src="img/Sample screenshot.png" />
 
-# Setup:
+# Setup
 - Clone the repository
 - Navigate to the top folder and use `make all` using Powershell or any other terminal application
 
