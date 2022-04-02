@@ -8,9 +8,12 @@
 
 <img src="img/Sample screenshot.png" />
 
-## How to run
+# Setup:
 - Clone the repository
-- Navigate to `/Pixis/bin` using Powershell or any other terminal application
+- Navigate to the top folder and use `make all` using Powershell or any other terminal application
+
+## How to run
+- Navigate to `/Pixis/bin`
 - Use `./main.exe` and include the path to the game file as shown below
 
       ./main.exe ./samples/INVADERS
